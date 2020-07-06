@@ -7,8 +7,16 @@
 <body>
     <div>
         Microblog:<a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
     </div>
     <br>
+    {% with messages =  get_flashed_messages() %}
+        {% for message in messages %}
+        <div>
+            <p>{{ message }}</p>
+        </div>
+        {% endfor %}
+    {% endwith %}
     {% block content %}
     {% endblock %}
 </body>
